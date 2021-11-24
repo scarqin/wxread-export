@@ -1,0 +1,17 @@
+{
+  "name": "Weixin Read Assistant",
+  "description": "Help u export wx review list.",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "webRequest",
+    "*://*.weread.qq.com/"
+  ],
+  "action": {
+    "default_title": "Weixin Read Assistant",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

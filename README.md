@@ -1,2 +1,1 @@
-# save-note
-export you note from wxread
+导出微信读书笔记

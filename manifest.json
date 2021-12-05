@@ -1,17 +1,20 @@
 {
-  "name": "Weixin Read Assistant",
-  "description": "Help u export wx review list.",
+  "name": "微信读书导出",
+  "description": "一键导出自微信读书笔记",
   "version": "0.0.1",
   "manifest_version": 3,
-  "permissions": [
-    "webRequest",
-    "*://*.weread.qq.com/"
-  ],
   "action": {
-    "default_title": "Weixin Read Assistant",
-    "default_icon": "icon.png"
+    "default_title": "Weixin Read Export",
+    "default_icon": "assets/icons/icon16.png",
+    "default_popup": "popup/public/index.html"
+  },
+  "homepage_url":"https://github.com/scarqin/wxread-export",
+  "icons": {
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
   },
   "background": {
-    "service_worker": "background.js"
-  }
+    "service_worker": "background/background.js"
+  },
+  "permissions": ["webRequest","https://weread.qq.com/*"]
 }

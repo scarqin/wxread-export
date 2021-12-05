@@ -1,1 +1,4 @@
+node_modules/
+popup/public/build/
+
 .DS_Store

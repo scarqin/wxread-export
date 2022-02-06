@@ -1,6 +1,6 @@
 {
-  "name": "微信读书导出",
-  "description": "一键导出自微信读书笔记",
+  "name": "WeRead Export",
+  "description": "一键导出微信读书笔记",
   "version": "0.0.1",
   "manifest_version": 3,
   "action": {
@@ -13,8 +13,6 @@
     "48": "assets/icons/icon48.png",
     "128": "assets/icons/icon128.png"
   },
-  "background": {
-    "service_worker": "background/background.js"
-  },
-  "permissions": ["webRequest","https://weread.qq.com/*"]
+  "permissions": ["declarativeNetRequest","declarativeNetRequestFeedback"],
+  "host_permissions":["https://i.weread.qq.com/*"]
 }

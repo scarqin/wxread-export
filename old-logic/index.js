@@ -1,5 +1,5 @@
-const BOOKMARKS = require("./config.json"),
-    REVIEWS = require('./review_list.json');
+const BOOKMARKS = require("../config.json"),
+    REVIEWS = require('../review_list.json');
 let bookMarkObj = {}
 for (var i = BOOKMARKS.chapters.length - 1; i >= 0; i--) {
     let chapterItem = BOOKMARKS.chapters[i];

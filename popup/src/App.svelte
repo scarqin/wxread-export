@@ -2,14 +2,15 @@
   import List from "./List.svelte";
   import Login from "./Login.svelte";
   let loading = true;
-  let user = { loggedIn: false,loginStatus:'unlogin'};
+  let user = { loggedIn: false,loginStatus:'unlogin',};
   function judgeIsLogin() {
-    fetch("https://i.weread.qq.com/user/profile")
+    fetch("https://i.weread.qq.com/friend/ranking?mine=1")
       .then((response) => response.json())
       .then((data) => {
         loading = false;
         if (!data.errcode) {
           user.loggedIn = true;
+          Object.assign(user,data.ranking[0].user)
           return;
         }
         user.loggedIn = false;
@@ -46,7 +47,7 @@
 {#if !loading}
   <div class="root-app mdui-theme-primary-indigo mdui-theme-accent-indigo">
     {#if user.loggedIn}
-      <List />
+      <List userVid={user.userVid}/>
     {/if}
     {#if !user.loggedIn}
       <Login loginStatus={user.loginStatus}/>

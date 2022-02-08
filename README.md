@@ -1,10 +1,18 @@
-# WeRead Export
+<h1 align="center">WeRead Export</h1>
+<div align="center">
 一键导出微信读书笔记
 
-# 功能
-## -[x] 显示带笔记的书籍列表
 ![](https://raw.githubusercontent.com/scarqin/wxread-export/main/wiki/app.png)
-## -[x] 一键导出 markdown 格式划线/评论
+</div>
+
+# 功能
+- [x] 显示带笔记的书籍列表
+- [x] 一键导出 markdown 格式划线/评论
+- [ ] 自定义导出内容（书籍信息、书籍评分等）
+- [ ] 自定义导出格式
+- [ ] 导出笔记图片
+- [ ] 支持 Firefox、Chrome 商店下载
+## 一键导出 markdown 格式划线/评论
 ![](https://raw.githubusercontent.com/scarqin/wxread-export/main/wiki/note-demo.png)
 # 安装
 ## 手动安装

@@ -28,7 +28,6 @@
   }
   judgeIsLogin();
 </script>
-
 {#if loading}
   <div class="mdui-spinner">
     <div class="mdui-spinner-layer ">

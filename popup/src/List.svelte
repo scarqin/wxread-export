@@ -1,5 +1,5 @@
 <script>
-  import { generateBookMark } from "./uitils";
+  import { generateBookMark } from "./utils";
   export let userVid;
   let books = [],
     selectedBook;

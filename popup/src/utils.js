@@ -5,6 +5,7 @@ class Book {
     this.markByChapterUid = {};
     this.generateMark(inMarkData.updated);
     this.generateReview(inReviewData.reviews);
+    this.sortMarkByRange()
   }
   getText(type = "markdown") {
     let result = "";
@@ -24,6 +25,13 @@ class Book {
     });
     return result;
   }
+  sortMarkByRange() {
+    Object.keys(this.markByChapterUid).forEach((chapterUid) => {
+      this.markByChapterUid[chapterUid].marks.sort((a, b) => {
+        return Number(a.range.split("-")[0]) - Number(b.range.split("-")[0]);
+      });
+    });
+  }
   /**
    * 生成划线笔记
    */
@@ -36,12 +44,11 @@ class Book {
         },
         chapterItem
       );
-      this.markByChapterUid[chapterItem.chapterUid].marks = marks
-        .filter((mark) => mark.chapterUid === chapterItem.chapterUid)
-        .sort(
-          (a, b) =>
-            Number(a.range.split("-")[0]) - Number(b.range.split("-")[0])
-        );
+      this.markByChapterUid[chapterItem.chapterUid].marks = marks.filter(
+        (mark) =>
+          //type=1 笔记,type=0 书签
+          mark.chapterUid === chapterItem.chapterUid && mark.type === 1
+      );
     }
   }
   /**
@@ -50,9 +57,12 @@ class Book {
   generateReview(reviews) {
     for (var i = reviews.length - 1; i >= 0; i--) {
       let reviewItem = reviews[i].review;
+      if (reviewItem.type !== 1) continue;
       this.markByChapterUid[reviewItem.chapterUid] =
         this.markByChapterUid[reviewItem.chapterUid] ||
         Object.assign({
+          chapterIdx: reviewItem.chapterIdx,
+          title: reviewItem.chapterTitle,
           marks: [],
         });
       // sort by range
@@ -90,5 +100,9 @@ export const generateBookMark = (
   inReviewData = { reviews: [] }
 ) => {
   let book = new Book(inMarkData, inReviewData);
+  console.log(book);
   return book.getText();
 };
+//* testCode
+import { reviewData, markData } from "./model/mock";
+generateBookMark(markData, reviewData);

@@ -3,9 +3,10 @@ class Book {
     this.book = inMarkData.book;
     this.chapters = inMarkData.chapters;
     this.markByChapterUid = {};
+    this.generatechapters();
     this.generateMark(inMarkData.updated);
     this.generateReview(inReviewData.reviews);
-    this.sortMarkByRange()
+    this.sortMarkByRange();
   }
   getText(type = "markdown") {
     let result = "";
@@ -31,6 +32,14 @@ class Book {
         return Number(a.range.split("-")[0]) - Number(b.range.split("-")[0]);
       });
     });
+  }
+  generatechapters() {
+    this.chapters.sort((a,b)=>a.chapterIdx-b.chapterIdx);
+    if (this.book.format === "txt") {
+      this.chapters.forEach((val, key) => {
+        val.title = `第 ${key + 1} 章${val.title ? ` ${val.title}` : ""}`;
+      });
+    }
   }
   /**
    * 生成划线笔记
@@ -104,5 +113,5 @@ export const generateBookMark = (
   return book.getText();
 };
 //* testCode
-import { reviewData, markData } from "./model/mock";
-generateBookMark(markData, reviewData);
+// import { reviewData, markData } from "./model/mock";
+// generateBookMark(markData, reviewData);

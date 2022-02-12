@@ -36,3 +36,7 @@ cd popup
 npm install
 npm run dev
 ```
+## 打包
+```
+cd popup&&npm run build
+```

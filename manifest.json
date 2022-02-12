@@ -1,7 +1,7 @@
 {
   "name": "WeRead Export",
   "description": "一键导出微信读书笔记",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 3,
   "action": {
     "default_title": "Weixin Read Export",

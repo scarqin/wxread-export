@@ -1,0 +1,25 @@
+{
+  "name": "wxread_assistant",
+  "version": "0.0.2",
+  "description": "一键导出微信读书笔记",
+  "main": "manifest.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scarqin/wxread-assistant.git"
+  },
+  "author": "scarqin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scarqin/wxread-assistant/issues"
+  },
+  "scripts": {
+    "postinstall": "cd popup && npm install",
+    "build": "cd popup&&npm run build&&gulp build",
+    "start": "cd popup&&npm run dev"
+  },
+  "homepage": "https://github.com/scarqin/wxread-assistant#readme",
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2"
+  }
+}

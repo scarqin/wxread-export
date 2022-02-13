@@ -15,7 +15,12 @@
 ## 一键导出 markdown 格式划线/评论
 ![](https://raw.githubusercontent.com/scarqin/wxread-export/main/wiki/note-demo.png)
 # 安装
-## 手动安装
+## 1. Chrome 商店安装
+[链接](https://chrome.google.com/webstore/detail/weread-export/pfdngabomfljjilophohpifglnodhhnh?hl=zh-CN&authuser=0)
+
+需要翻墙，可以自动更新
+
+## 2. 手动安装
 1. clone 仓库
 ```
 git clone https://github.com/scarqin/wxread-export.git
@@ -23,8 +28,8 @@ git clone https://github.com/scarqin/wxread-export.git
 
 2. Chrome 浏览器访问 [chrome://extensions/](chrome://extensions/)，打开右上角开发者模式，拖入仓库文件到此界面。
 
-## chrome 商店安装
-暂未上线
+> 使用 git pull 更新
+
 
 # 源码开发
 ## API 文档

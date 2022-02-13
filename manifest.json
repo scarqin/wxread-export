@@ -13,6 +13,5 @@
     "48": "assets/icons/icon48.png",
     "128": "assets/icons/icon128.png"
   },
-  "permissions": ["declarativeNetRequest","declarativeNetRequestFeedback"],
   "host_permissions":["https://i.weread.qq.com/*"]
 }

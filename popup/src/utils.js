@@ -10,6 +10,9 @@ class Book {
   }
   getText(type = "markdown") {
     let result = "";
+    result = `${this.book.title}\n${this.book.author}\n${Object.values(
+      this.markByChapterUid
+    ).reduce((acc, i) => acc + i.marks.length, 0)} 个笔记\n`;
     Object.keys(this.markByChapterUid).forEach((chapterUid) => {
       if (!this.markByChapterUid[chapterUid].marks.length) return;
       if (this.markByChapterUid[chapterUid].title) {
@@ -34,7 +37,7 @@ class Book {
     });
   }
   generatechapters() {
-    this.chapters.sort((a,b)=>a.chapterIdx-b.chapterIdx);
+    this.chapters.sort((a, b) => a.chapterIdx - b.chapterIdx);
     if (this.book.format === "txt") {
       this.chapters.forEach((val, key) => {
         val.title = `第 ${key + 1} 章${val.title ? ` ${val.title}` : ""}`;
@@ -109,7 +112,6 @@ export const generateBookMark = (
   inReviewData = { reviews: [] }
 ) => {
   let book = new Book(inMarkData, inReviewData);
-  console.log(book);
   return book.getText();
 };
 //* testCode

@@ -23,6 +23,10 @@ class Book {
           result += `${markItem.reviewText}\n`;
         }
         if (markItem.markText) {
+          //TODO export image
+          if (markItem.markText.includes("￼")) {
+            console.log(markItem.markText);
+          }
           result += `>${markItem.markText}\n\n<hr>\n\n`;
         }
       });

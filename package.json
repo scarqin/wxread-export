@@ -1,6 +1,6 @@
 {
   "name": "wxread_assistant",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "一键导出微信读书笔记",
   "main": "manifest.js",
   "repository": {

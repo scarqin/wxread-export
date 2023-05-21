@@ -1,8 +1,13 @@
 class Book {
-  constructor(inMarkData, inReviewData) {
+  constructor(inMarkData, inReviewData, inProgressData) {
     this.book = inMarkData.book;
     this.chapters = inMarkData.chapters;
     this.markByChapterUid = {};
+    this.progress = {
+      startTime: inProgressData.startReadingTime,
+      finishTime: inProgressData.finishTime,
+      readingTime: inProgressData.readingTime,
+    };
     this.generatechapters();
     this.generateMark(inMarkData.updated);
     this.generateReview(inReviewData.reviews);
@@ -10,9 +15,11 @@ class Book {
   }
   getText(type = "markdown") {
     let result = "";
-    result = `${this.book.title}\n${this.book.author}\n${Object.values(
-      this.markByChapterUid
-    ).reduce((acc, i) => acc + i.marks.length, 0)} 个笔记\n`;
+    //生成描述
+    result = `${this.book.title}\n${this.book.author}\n${Object.values(this.markByChapterUid).reduce((acc, i) => acc + i.marks.length, 0)} 个笔记\n`;
+    //生成阅读周期
+    result += `阅读周期:\n* 阅读时长：${Math.floor(this.progress.readingTime / 60 / 60)} 小时\n* 开始时间：${new Date(this.progress.startTime * 1000).toLocaleString()}\n* 结束时间：${new Date(this.progress.finishTime * 1000).toLocaleString()}\n* `;
+    //生成笔记
     Object.keys(this.markByChapterUid).forEach((chapterUid) => {
       if (!this.markByChapterUid[chapterUid].marks.length) return;
       if (this.markByChapterUid[chapterUid].title) {
@@ -82,9 +89,7 @@ class Book {
           marks: [],
         });
       // sort by range
-      let sameMarksItem = this.markByChapterUid[
-        reviewItem.chapterUid
-      ].marks.find((marksItem) => reviewItem.range === marksItem.range);
+      let sameMarksItem = this.markByChapterUid[reviewItem.chapterUid].marks.find((marksItem) => reviewItem.range === marksItem.range);
       if (sameMarksItem) {
         sameMarksItem.reviewText = reviewItem.content;
       } else {
@@ -111,11 +116,8 @@ class Book {
  * @param {object} inMarkData - 笔记
  * @param {object} inReviewData - 笔记评论
  */
-export const generateBookMark = (
-  inMarkData,
-  inReviewData = { reviews: [] }
-) => {
-  let book = new Book(inMarkData, inReviewData);
+export const generateBookMark = (inMarkData, inReviewData = { reviews: [] }, progressData) => {
+  let book = new Book(inMarkData, inReviewData, progressData.book);
   return book.getText();
 };
 //* testCode

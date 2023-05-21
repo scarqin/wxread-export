@@ -17,19 +17,13 @@
   }
   function exportBookmarks() {
     if (!selectedBook) return;
-    Promise.all(
-      [
-        `https://i.weread.qq.com/book/bookmarklist?bookId=${selectedBook}`,
-        `https://i.weread.qq.com/review/list?bookId=${selectedBook}&mine=1&listType=11&maxIdx=0&count=0&listMode=2&synckey=0&userVid=${userVid}`,
-      ].map((url) => fetch(url).then((resp) => resp.json()))
-    ).then((data) => {
-      let [markData, reviewData] = data;
+    Promise.all([`https://i.weread.qq.com/book/bookmarklist?bookId=${selectedBook}`, `https://i.weread.qq.com/review/list?bookId=${selectedBook}&mine=1&listType=11&maxIdx=0&count=0&listMode=2&synckey=0&userVid=${userVid}`, `https://i.weread.qq.com/book/getProgress?bookId=${selectedBook}`].map((url) => fetch(url).then((resp) => resp.json()))).then((data) => {
+      // bookRemark\Review\Reading progress
+      let [markData, reviewData, progressData] = data;
       if (navigator.clipboard) {
-        navigator.clipboard
-          .writeText(generateBookMark(markData, reviewData))
-          .then(() => {
-            alert("已复制 Markdown 到粘贴板");
-          });
+        navigator.clipboard.writeText(generateBookMark(markData, reviewData, progressData)).then(() => {
+          alert("已复制 Markdown 到粘贴板");
+        });
       }
     });
   }
@@ -38,9 +32,7 @@
 <div class="mdui-toolbar mdui-appbar mdui-appbar-fixed mdui-color-theme">
   <span class="mdui-typo-title">导出笔记</span>
   <div class="mdui-toolbar-spacer" />
-  <button class="mdui-btn mdui-btn-icon" on:click={exportBookmarks}
-    ><i class="mdui-icon material-icons">content_copy</i></button
-  >
+  <button class="mdui-btn mdui-btn-icon" on:click={exportBookmarks}><i class="mdui-icon material-icons">content_copy</i></button>
 </div>
 <div class=" mdui-container book-list-wrap">
   {#each books as book (book.bookId)}

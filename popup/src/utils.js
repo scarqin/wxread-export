@@ -18,7 +18,7 @@ class Book {
     //生成描述
     result = `${this.book.title}\n${this.book.author}\n${Object.values(this.markByChapterUid).reduce((acc, i) => acc + i.marks.length, 0)} 个笔记\n`;
     //生成阅读周期
-    result += `阅读周期:\n* 阅读时长：${Math.floor(this.progress.readingTime / 60 / 60)} 小时\n* 开始时间：${new Date(this.progress.startTime * 1000).toLocaleString()}\n* 结束时间：${new Date(this.progress.finishTime * 1000).toLocaleString()}\n* `;
+    result += `阅读周期:\n* 阅读时长：${Math.floor(this.progress.readingTime / 60 / 60)} 小时\n* 开始时间：${new Date(this.progress.startTime * 1000).toLocaleString()}\n* 结束时间：${new Date(this.progress.finishTime * 1000).toLocaleString()}\n---\n`;
     //生成笔记
     Object.keys(this.markByChapterUid).forEach((chapterUid) => {
       if (!this.markByChapterUid[chapterUid].marks.length) return;

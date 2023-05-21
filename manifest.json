@@ -1,17 +1,17 @@
 {
   "name": "微信读书导出",
   "description": "一键导出微信读书笔记",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "manifest_version": 3,
   "action": {
     "default_title": "Weixin Read Export",
     "default_icon": "assets/icons/icon16.png",
     "default_popup": "popup/public/index.html"
   },
-  "homepage_url":"https://github.com/scarqin/wxread-export",
+  "homepage_url": "https://github.com/scarqin/wxread-export",
   "icons": {
     "48": "assets/icons/icon48.png",
     "128": "assets/icons/icon128.png"
   },
-  "host_permissions":["https://i.weread.qq.com/*"]
+  "host_permissions": ["https://i.weread.qq.com/*"]
 }

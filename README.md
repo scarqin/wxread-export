@@ -29,7 +29,7 @@
 
 [链接](https://chrome.google.com/webstore/detail/weread-export/pfdngabomfljjilophohpifglnodhhnh?hl=zh-CN&authuser=0)
 
-需要翻墙，可以自动更新
+需要科学上网，可以自动更新
 
 ## 2. 手动安装
 

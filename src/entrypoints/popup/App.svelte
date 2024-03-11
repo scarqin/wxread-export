@@ -3,6 +3,7 @@
   import Login from "./Login.svelte";
   let loading = true;
   let user = { loggedIn: false, loginStatus: "unlogin" };
+
   function judgeIsLogin() {
     fetch("https://i.weread.qq.com/friend/ranking?mine=1")
       .then((response) => response.json())
@@ -35,19 +36,7 @@
 </script>
 
 {#if loading}
-  <div class="mdui-spinner">
-    <div class="mdui-spinner-layer">
-      <div class="mdui-spinner-circle-clipper mdui-spinner-left">
-        <div class="mdui-spinner-circle" />
-      </div>
-      <div class="mdui-spinner-gap-patch">
-        <div class="mdui-spinner-circle" />
-      </div>
-      <div class="mdui-spinner-circle-clipper mdui-spinner-right">
-        <div class="mdui-spinner-circle" />
-      </div>
-    </div>
-  </div>
+  <mdui-button-icon loading icon="search" variant="tonal"></mdui-button-icon>
 {/if}
 {#if !loading}
   <div class="root-app mdui-theme-primary-indigo mdui-theme-accent-indigo">

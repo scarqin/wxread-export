@@ -47,7 +47,7 @@ git clone https://github.com/scarqin/wxread-export.git
 
 ## API 文档
 
-[在线 API 文档](https://scarfree.w.eolink.com/share/project/api/?groupID=-1&shareCode=65wWvE&shareToken=$2y$10$ZVixV4UGvQ221pgkWRQKOO4Ew~2FYGsXSwPbg.NRZO8i7r6hChj5q7e&shareID=355331)
+[在线 API 文档](https://www.eolink.com/share/index?shareCode=65wWvE)
 ![](https://raw.githubusercontent.com/scarqin/wxread-export/main/wiki/eolink.png)
 
 ## 安装依赖

@@ -4,13 +4,7 @@
 </script>
 
 <div class="login-wrap">
-  <a
-    href="https://weread.qq.com{loginStatus === 'timeout' ? '' : '/#login'}"
-    target="_blank"
-    ><button type="button" class="mdui-btn mdui-color-theme-accent mdui-ripple"
-      >{loginStatus === "timeout" ? "登录超时，前往刷新" : "前往登录"}</button
-    ></a
-  >
+  <mdui-button href="https://weread.qq.com{loginStatus === 'timeout' ? '' : '/#login'}" target="_blank">{loginStatus === "timeout" ? "登录超时，前往刷新" : "前往登录"}</mdui-button>
 </div>
 
 <style>

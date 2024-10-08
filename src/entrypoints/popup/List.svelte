@@ -41,6 +41,7 @@
 </mdui-top-app-bar>
 <!-- <div class="mdui-toolbar mdui-appbar mdui-appbar-fixed mdui-color-theme">
   <span class="mdui-typo-title">导出笔记</span>
+  <input class="mdui-typo-title" placeholder="搜索" />
   <div class="mdui-toolbar-spacer" />
   
 </div> -->

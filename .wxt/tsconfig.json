@@ -10,6 +10,8 @@
     "strict": true,
     "skipLibCheck": true,
     "paths": {
+      "$lib": ["../src/lib"],
+      "$lib/*": ["../src/lib/*"],
       "@": ["../src"],
       "@/*": ["../src/*"],
       "~": ["../src"],

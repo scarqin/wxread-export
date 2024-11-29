@@ -2,8 +2,6 @@
   import { generateBookMark } from "./utils";
   export let userVid;
 
-  import "mdui/components/button.js";
-
   let books = [],
     selectedBook;
   function getNoteBooks() {
@@ -45,7 +43,7 @@
   <div class="mdui-toolbar-spacer" />
   
 </div> -->
-<div class=" mdui-container book-list-wrap">
+<div class="mdui-container book-list-wrap">
   {#each books as book (book.bookId)}
     <mdui-card clickable on:click={() => handleClick(book)}>
       <div class="mdui-card-media">

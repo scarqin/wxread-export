@@ -34,7 +34,7 @@ class Book {
           if (markItem.markText.includes("￼")) {
             console.log(markItem.markText);
           }
-          result += `>${markItem.markText}\n\n<hr>\n\n`;
+          result += `>${markItem.markText}\n\n<hr/>\n\n`;
         }
       });
     });

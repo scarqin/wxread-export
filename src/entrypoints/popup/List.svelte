@@ -1,6 +1,7 @@
 <script>
   import { generateBookMark } from "./utils";
   export let userVid;
+
   let books = [],
     selectedBook;
   function getNoteBooks() {
@@ -29,14 +30,22 @@
   }
 </script>
 
-<div class="mdui-toolbar mdui-appbar mdui-appbar-fixed mdui-color-theme">
-  <span class="mdui-typo-title">导出笔记</span>
-  <div class="mdui-toolbar-spacer" />
+<mdui-top-app-bar style="position: relative;">
+  <!-- <mdui-button-icon icon="menu"></mdui-button-icon> -->
+  <mdui-top-app-bar-title>导出笔记</mdui-top-app-bar-title>
+  <div style="flex-grow: 1"></div>
   <button class="mdui-btn mdui-btn-icon" on:click={exportBookmarks}><i class="mdui-icon material-icons">content_copy</i></button>
-</div>
-<div class=" mdui-container book-list-wrap">
+  <!-- <mdui-button-icon icon="more_vert"></mdui-button-icon> -->
+</mdui-top-app-bar>
+<!-- <div class="mdui-toolbar mdui-appbar mdui-appbar-fixed mdui-color-theme">
+  <span class="mdui-typo-title">导出笔记</span>
+  <input class="mdui-typo-title" placeholder="搜索" />
+  <div class="mdui-toolbar-spacer" />
+  
+</div> -->
+<div class="mdui-container book-list-wrap">
   {#each books as book (book.bookId)}
-    <div class="mdui-card mdui-col" on:click={() => handleClick(book)}>
+    <mdui-card clickable on:click={() => handleClick(book)}>
       <div class="mdui-card-media">
         <img src={book.cover.replace("s_", "t6_")} alt="cover" />
         <div class="mdui-card-media-covered">
@@ -49,7 +58,7 @@
       <div class="mdui-card-actions">
         <div class="mdui-typo-body-2 text-omit">{book.title}</div>
       </div>
-    </div>
+    </mdui-card>
   {/each}
 </div>
 

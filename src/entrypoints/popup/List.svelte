@@ -4,7 +4,7 @@
   let books = [],
     selectedBook;
   function getNoteBooks() {
-    fetch("https://i.weread.qq.com/user/notebooks")
+    fetch("https://weread.qq.com/api/user/notebook")
       .then((response) => response.json())
       .then((data) => {
         books = data.books.map((val) => val.book);
@@ -17,7 +17,7 @@
   }
   function exportBookmarks() {
     if (!selectedBook) return;
-    Promise.all([`https://i.weread.qq.com/book/bookmarklist?bookId=${selectedBook}`, `https://i.weread.qq.com/review/list?bookId=${selectedBook}&mine=1&listType=11&maxIdx=0&count=0&listMode=2&synckey=0&userVid=${userVid}`, `https://i.weread.qq.com/book/getProgress?bookId=${selectedBook}`].map((url) => fetch(url).then((resp) => resp.json()))).then((data) => {
+    Promise.all([`https://weread.qq.com/web/book/bookmarklist?bookId=${selectedBook}`, `https://weread.qq.com/web/review/list?bookId=${selectedBook}&mine=1&listType=11&maxIdx=0&count=0&listMode=2&synckey=0&userVid=${userVid}`, `https://weread.qq.com/web/book/getProgress?bookId=${selectedBook}`].map((url) => fetch(url).then((resp) => resp.json()))).then((data) => {
       // bookRemark\Review\Reading progress
       let [markData, reviewData, progressData] = data;
       if (navigator.clipboard) {
@@ -76,6 +76,7 @@
   .mdui-card img {
     height: 100%;
     object-fit: cover;
+    min-height: 200px;
   }
 
   .mdui-container {

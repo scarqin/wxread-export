@@ -4,13 +4,13 @@
   let loading = true;
   let user = { loggedIn: false, loginStatus: "unlogin" };
   function judgeIsLogin() {
-    fetch("https://i.weread.qq.com/friend/ranking?mine=1")
+    fetch("https://weread.qq.com/api/user/notebook")
       .then((response) => response.json())
       .then((data) => {
         loading = false;
         if (!data.errcode) {
           user.loggedIn = true;
-          Object.assign(user, data.ranking[0].user);
+          Object.assign(user, {});
           return;
         }
         user.loggedIn = false;

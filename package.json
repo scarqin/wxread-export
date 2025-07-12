@@ -2,7 +2,7 @@
   "name": "wx-export",
   "description": "一键导出微信读书笔记",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",

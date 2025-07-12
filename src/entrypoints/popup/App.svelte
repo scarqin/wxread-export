@@ -8,13 +8,13 @@
       .then((response) => response.json())
       .then((data) => {
         loading = false;
-        if (!data.errcode) {
+        if (!data?.data?.errcode) {
           user.loggedIn = true;
           Object.assign(user, {});
           return;
         }
         user.loggedIn = false;
-        switch (data.errcode) {
+        switch (data?.data?.errcode) {
           case -2012: {
             //登录超时
             user.loginStatus = "timeout";
